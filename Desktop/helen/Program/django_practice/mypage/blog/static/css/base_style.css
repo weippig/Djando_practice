@@ -1,0 +1,72 @@
+body { 
+    font-family:helvetica, sans-serif; 
+    background-color:white;
+    font-family:"Times New Roman", Times, serif;;
+}
+
+a{
+    text-decoration:none;
+    color: #272727;
+}
+a:hover{
+    text-decoration:none;
+    color: #9d9d9d;
+}
+
+
+h2{
+    color: #00AAAA;
+}
+
+.button_href:hover{
+    color: white;
+}
+
+#main_title{
+    padding:10px 30px;
+/*    border-radius: 10px;*/
+    background-color:rgb(0, 170, 170,0.7);
+    color: white;
+    text-align:center;
+    position:relative;
+}
+
+#content{
+    margin: 20px 25px 20px 10px;
+    /*上右下左*/
+    padding:0px 30px;
+    width: 55%;
+    float:left;
+}
+#sidebar{
+    background-color:rgb(0, 170, 170,0.3);
+    color: white;
+    border-radius: 10px;
+    width: 30%;
+    margin-top: 30px;
+    padding: 10px 20px;
+    float:left;
+}
+
+.icon{
+    height: 40px;
+    width: 40px;
+/*    float: right;*/
+    display: inline;
+/*    vertical-align: middle;*/
+}
+
+#list_post{
+    border: 7px rgb(0, 170, 170,0.3) dashed;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+#list_post:hover{
+    border :7px border: 7px rgb(0, 170, 170,0.2) dashed;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: rgb(0, 170, 170,0.2);
+}
+.date{
+    color: gray;
+}

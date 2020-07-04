@@ -1,0 +1,50 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+	<div id="post_detail" >
+		<h1 style="color: #00AAAA">{{ post.title }}</h1>
+		<p class="date">
+			Published {{ post.publish }} by {{ post.author }}
+		</p>
+		{{ post.body|linebreaks }}
+	</div>
+	<hr color="gray" size="5">
+<!-- 留言 -->
+	<div>
+	{% with comments.count as total_comments %}
+  	<h2>
+    {{ total_comments }} comment{{ total_comments|pluralize }}
+    </h2>
+	{% endwith %}
+	{% for comment in comments %}
+		<div>
+			<p>
+				Comment {{ forloop.counter}} by {{ comment.name }}
+				{{ comment.created }}
+			</p>
+			{{ comment.body|linebreaks }}
+		</div>
+	{% empty %}
+		<p>There are no comment yet.</p>
+	{% endfor %}
+	{% if new_comment %}
+  		<h3>Your comment has been added.</h3>
+	{% else %}
+	<hr color="gray" size="5">
+
+	<div>
+  		<h2>Add a new comment</h2>
+  			<form action="." method="post" style="">
+    		{{ comment_form.as_p }}
+    		{% csrf_token %}
+    		<button type="submit" class="btn btn-outline-secondary">Add comment</button>
+  			</form>
+  	</div><br><br><br>
+	{% endif %}
+	
+
+<!-- 	<button type="button" class="btn btn-outline-secondary"><a href= # class="button_href">Add a comment</a></button> -->
+	</div>
+{% endblock %}

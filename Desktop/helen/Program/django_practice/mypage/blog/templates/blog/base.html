@@ -1,0 +1,36 @@
+{% load blog_tags %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title >{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base_style.css' %}">
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="main_title">
+		<h1><a href= '{{ post.get_home_page }}' class="button_href">MY BLOG</a></h1>
+<!-- 		<a href="#"><img src="{% static 'image/png/login.png' %}" class="icon"></a> -->
+	</div>
+	<div id='content'>
+		{% block content %}
+		{% endblock %}
+	</div>
+	<div id='sidebar'>
+		<h3>My Blog</h3>
+		<p>I've written {% total_posts %} posts.</p>
+		<h4>Latest Post</h4>
+			{% show_latest_posts 3 %}
+		<h4>Most commented posts</h4>
+		{% get_most_commented_posts as most_commented_posts %}
+			<ul>
+				{% for post in most_commented_posts %}
+				<li>
+					<a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+				</li>
+				{% endfor %}
+			</ul>
+	</div>
+</body>
+</html>
